@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: rgb(36, 28, 28);
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display img {
+  height: 300px;
+  width: 400px;
+}
+.select img {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  margin: 1rem;
+}
