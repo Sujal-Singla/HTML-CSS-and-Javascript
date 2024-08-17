@@ -1,50 +1,30 @@
-// Select form, input fields, and elements for expense list and total
-const form = document.getElementById('expense-form');
-const descriptionInput = document.getElementById('description');
-const amountInput = document.getElementById('amount');
-const expenseList = document.getElementById('expense-list');
-const totalExpense = document.getElementById('total-expense');
-
-// Initialize total
+const amountInput = document.querySelector("#amount");
+const list = document.querySelector("#history");
+const totalAmount = document.querySelector("#total");
 let total = 0;
 
-// Function to update total expense display
-function updateTotal() {
-    totalExpense.textContent = `Total Expense: $${total.toFixed(2)}`;
-}
 
-// Event listener for form submission
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Get input values
-    const description = descriptionInput.value.trim();
-    const amount = parseFloat(amountInput.value);
-    
-    if (description === '' || isNaN(amount) || amount <= 0) {
-        alert('Please enter a valid description and amount.');
-        return;
-    }
+const form = document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const desc = document.querySelector("#description").value;
+  const amount = parseFloat(amountInput.value);
+  if (desc === "" || isNaN(amount) || amount <= 0) {
+    alert("Please Enter a valid value");
+    return;
+  }
+  total = total + amount;
+  totalAmount.innerHTML = total.toFixed(2);
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `${desc} - ${amount.toFixed(
+    2
+  )} <button class="remove"> Remove </button>`;
 
-    // Create list item for the expense
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `${description} - $${amount.toFixed(2)} <button class="remove-btn">Remove</button>`;
-    
-    // Add remove button functionality
-    listItem.querySelector('.remove-btn').addEventListener('click', function() {
-        total -= amount;
-        updateTotal();
-        expenseList.removeChild(listItem);
-    });
+  listItem.querySelector(".remove").addEventListener("click", () => {
+    console.log("removed");
+    list.removeChild(listItem);
+    total = total - amount;
+    totalAmount.innerHTML = total.toFixed(2);
+  });
 
-    // Add the new item to the list
-    expenseList.appendChild(listItem);
-    
-    // Update total expense
-    total += amount;
-    updateTotal();
-
-    // Clear input fields
-    descriptionInput.value = '';
-    amountInput.value = '';
+  list.appendChild(listItem);
 });

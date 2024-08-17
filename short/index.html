@@ -5,25 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      nav {
-        border: 1px solid black;
-        height: 5rem;
-        position: fixed;
-        width: 100vh;
-        top: 100px;
-        z-index: 10;
-        background: white;
+      body {
+        background: black;
       }
-      .container {
-        background: blue;
-        width: 100vw;
-        height: 200vh;
-        z-index: -1;
+      .div {
+        height: 100px;
+        width: 100px;
+        background: white;
+        box-shadow: 0px 0px 20px -1px white;
+        border-radius: 50%;
+        position: relative;
+        left: 0px;
+        animation: convert 1s linear infinite;
+      }
+      @keyframes convert {
+        0% {
+          left: 0px;
+          border-radius: 50%;
+          transform: rotate(0deg);
+        }
+        100% {
+          left: 50px;
+          border-radius: 0px;
+          transform: rotate(90deg);
+        }
       }
     </style>
   </head>
   <body>
-    <nav></nav>
-    <div class="container"></div>
+    <div class="div"></div>
   </body>
 </html>
