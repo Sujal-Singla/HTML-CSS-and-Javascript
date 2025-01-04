@@ -1,7 +1,7 @@
 const images = [
-  "dice-1502706_640.jpg",
-  "images.jpeg",
-  "Virrappan2-58f79980ae6fb__880.jpg",
+  "./assets/dice-1502706_640.jpg",
+  "./assets/images.jpeg",
+  "./assets/Virrappan2-58f79980ae6fb__880.jpg",
 ];
 
 const main = document.querySelector(".main");

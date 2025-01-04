@@ -1,0 +1,16 @@
+body {
+  background: rgb(31, 21, 32);
+}
+
+.images img {
+  height: 200px;
+  width: 400px;
+}
+.display span {
+  cursor: pointer;
+  display: inline-block;
+}
+.display img {
+  height: 413px;
+  width: 735px;
+}
